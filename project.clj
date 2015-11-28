@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies
   [[org.clojure/clojure "1.6.0"]
-   [prismatic/schema "0.3.8-SNAPSHOT"]
+   [prismatic/schema "0.4.2"]
    [danlentz/clj-uuid "0.0.7-SNAPSHOT"]
    
    [zookeeper-clj "0.9.3"]
