@@ -20,7 +20,8 @@
    [onyx.api]
    
    [cqrs-server.cqrs :as cqrs]
-   [cqrs-server.module :as module]))
+   [cqrs-server.module :as module])
+  (:gen-class))
 
 ;; Start local dynamodb - download from:
 ;; http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html
@@ -151,7 +152,7 @@
      :dynamodb/config dynamodb-cred
      :onyx/batch-size 20
      :onyx/doc "Transacts segments to dynamodb"}
-    :aggregate-store
+    :aggregate-out
     {:onyx/ident :datomic/commit-tx
      :onyx/type :output
      :onyx/medium :datomic-tx
@@ -231,3 +232,7 @@
   (k/with-resource [c (zk/consumer config)]
     zk/shutdown
     (println (take 10 (map fressian/read (map :value (zk/messages c queue)))))))
+
+
+(defn main- [& args]
+  (start))
